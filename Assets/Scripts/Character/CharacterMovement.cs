@@ -7,6 +7,7 @@ public class CharacterMovement : MonoBehaviour
 
     public Character character { get; private set; }
 
+
     [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private float turnSpeed = 10f;
 
@@ -18,6 +19,12 @@ public class CharacterMovement : MonoBehaviour
         get { return controller.stepOffset != 0; }
         private set { controller.stepOffset = (value) ? stepOffset : 0; }
     }
+    [Header("Grounding")]
+    [HideInInspector] public VoxMaterial groundMaterial;
+    [SerializeField] private VoxMaterialManager voxMaterialManager;
+    [SerializeField] private LayerMask layerMask;
+    [SerializeField] private Vector3 slopeDirection = Vector3.up;
+    private float slopeAngle;
 
     public CharacterController controller { get; private set; }
 
@@ -38,12 +45,15 @@ public class CharacterMovement : MonoBehaviour
                 character.transform.forward = Vector3.RotateTowards(character.transform.forward, inputMoveDirection, turnSpeed * Time.deltaTime, 1f);
             }
         }
+        if (slopeAngle > controller.slopeLimit) {
+            controller.Move(slopeDirection * (slopeAngle * 0.1f) * Time.deltaTime);
+        }
         controller.Move(Vector3.up * gravity * Time.deltaTime);
         character.model.animator.SetFloat("Speed", inputMoveDirection.magnitude);
     }
 
     public void Jump() {
-        if (isGrounded) {
+        if (isGrounded && slopeAngle < controller.slopeLimit) {
             isGrounded = false;
             gravity = jumpForce;
             fallinStartY = transform.position.y;
@@ -60,6 +70,18 @@ public class CharacterMovement : MonoBehaviour
                 gravity = gravityForce;
                 if (fallinStartY - transform.position.y > fallinDistance) character.model.animator.SetTrigger("Roll");
             }
+            RaycastHit hit;
+            VoxMaterial newVoxMaterial = VoxMaterial.Null;
+            if (Physics.Raycast(transform.position + Vector3.up, Vector3.down, out hit, 2f, layerMask)) {
+                newVoxMaterial = voxMaterialManager.GetMaterial(hit);
+                slopeAngle = Vector3.Angle(hit.normal, Vector3.up);
+                slopeDirection = Vector3.Cross(hit.normal, Vector3.Cross(hit.normal, Vector3.up));
+            } else {
+                newVoxMaterial = VoxMaterial.Asphalt;
+            }
+            if (newVoxMaterial != VoxMaterial.Null && newVoxMaterial != groundMaterial) {
+                groundMaterial = newVoxMaterial;
+            }
         } else {
             if (isGrounded) {
                 isGrounded = false;
@@ -68,6 +90,6 @@ public class CharacterMovement : MonoBehaviour
             }
             if (gravity > gravityForce) gravity += gravityForce * Time.deltaTime;
         }
-        character.model.animator.SetBool("IsGrounded", isGrounded);
+        character.model.animator.SetBool("IsGrounded", isGrounded && slopeAngle < controller.slopeLimit);
     }
 }

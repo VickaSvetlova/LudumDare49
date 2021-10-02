@@ -14,6 +14,7 @@ public enum RenderType {
 public class CharacterModel : MonoBehaviour {
 
     public Transform headPoint;
+    public Transform torsoPoint;
     public Animator animator { get; protected set; }
 
     private Renderer[] renderers;

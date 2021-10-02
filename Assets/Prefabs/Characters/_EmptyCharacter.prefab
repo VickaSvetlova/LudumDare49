@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55210a3ec6b94374581bd0410f6cfbfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idea: {fileID: 0}
 --- !u!114 &4570524283204298038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +63,14 @@ MonoBehaviour:
   jumpForce: 5
   fallinDistance: 3
   stepOffset: 0.3
+  groundMaterial: 0
+  voxMaterialManager: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  slopeAngle: 0
   inputMoveDirection: {x: 0, y: 0, z: 0}
+  gravityDirection: {x: 0, y: 1, z: 0}
 --- !u!143 &4786321173424982834
 CharacterController:
   m_ObjectHideFlags: 0
