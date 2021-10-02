@@ -461,7 +461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3953854127382859646}
-  - component: {fileID: 4842650679571319647}
+  - component: {fileID: -2466134918801798183}
   m_Layer: 0
   m_Name: floor
   m_TagString: Untagged
@@ -490,7 +490,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4842650679571319647
+--- !u!114 &-2466134918801798183
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -499,9 +499,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4437516564751603140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8657687c4b5afaf43bd6884cd005d0d8, type: 3}
+  m_Script: {fileID: 11500000, guid: a330723caa982cc4e9cea34776c71b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
 --- !u!1 &5303229158639630927
 GameObject:
   m_ObjectHideFlags: 0
