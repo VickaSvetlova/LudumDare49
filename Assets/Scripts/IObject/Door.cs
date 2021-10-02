@@ -12,10 +12,11 @@ public class Door : InteractiveObject {
 
     public override void Use(Character character) {
         base.Use(character);
+        Debug.Log(transform.InverseTransformPoint(character.transform.position).x);
         if (transform.InverseTransformPoint(character.transform.position).x > 0) {
-            targetAngle = (isOpen) ? 0f : 90f;
+            targetAngle = (isOpen) ? 90f : 0f;
         } else {
-            targetAngle = (isOpen) ? 0f : -90f;
+            targetAngle = (isOpen) ? 90f : 180f;
         }
         StopAllCoroutines();
         StartCoroutine(IEDoorRotation());
