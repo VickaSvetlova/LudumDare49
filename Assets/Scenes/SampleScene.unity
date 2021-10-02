@@ -562,10 +562,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57355114316c4e9459176e2fb590ed73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ambientSound: {fileID: 147812309}
   ambientClip: {fileID: 8300000, guid: be9b4e7f170bed94ba701545ca0af17d, type: 3}
   ambientVolume: 0.02
-  environmentLight: {fileID: 1374010381}
   environmentColor: {r: 0.4117647, g: 0.6117647, b: 0.6901961, a: 1}
   environmentColorIntensity: 1
   environmentReflectionIntensity: 1
@@ -846,10 +844,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57355114316c4e9459176e2fb590ed73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ambientSound: {fileID: 147812309}
   ambientClip: {fileID: 8300000, guid: df6c373588f41dd44a2fd7f4f251550e, type: 3}
   ambientVolume: 0.05
-  environmentLight: {fileID: 1374010381}
   environmentColor: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
   environmentColorIntensity: 1
   environmentReflectionIntensity: 1
@@ -1653,10 +1649,6 @@ PrefabInstance:
       propertyPath: voxMaterialManager
       value: 
       objectReference: {fileID: 1695937609}
-    - target: {fileID: 5919930400734411279, guid: 26a654555af871f4f89b09bcd9f4cb9d, type: 3}
-      propertyPath: stepClips.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: 87feef55148f0104094e5805c35cfc03, type: 3}
     - target: {fileID: 6004809916329993814, guid: 26a654555af871f4f89b09bcd9f4cb9d, type: 3}
       propertyPath: m_Layer
       value: 6

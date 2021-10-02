@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnvironmentLightSystem : MonoBehaviour
-{
+public class EnvironmentLightSystem : MonoBehaviour {
+
+    public static EnvironmentLightSystem main { get; private set; }
+
     [SerializeField] private Light sunLight;
     [SerializeField] private Light flashlight;
     [SerializeField] private float fadeSpeed;
@@ -14,6 +16,10 @@ public class EnvironmentLightSystem : MonoBehaviour
     private Color sunColor;
     private float sunIntensity;
     private float factor = 1f;
+
+    private void Awake() {
+        main = this;
+    }
 
 
     public void Set(Color environmentColor, float environmentIntensity, float reflectionIntensity, 

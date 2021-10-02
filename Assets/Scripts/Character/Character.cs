@@ -19,4 +19,8 @@ public class Character : MonoBehaviour {
         isHidden = value;
     }
 
+    public void Die() {
+
+    }
+
 }

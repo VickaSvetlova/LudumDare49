@@ -3,6 +3,8 @@ using System.Collections;
 
 public class AmbientSoundSystem : MonoBehaviour {
 
+    public static AmbientSoundSystem main { get; private set; }
+
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private float fadeInSpeed;
     [SerializeField] private float fadeOutSpeed;
@@ -10,6 +12,7 @@ public class AmbientSoundSystem : MonoBehaviour {
     private float _factor = 1f;
 
     private void Awake() {
+        main = this;
         audioSource = GetComponent<AudioSource>();
     }
 

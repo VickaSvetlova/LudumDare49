@@ -18,6 +18,9 @@ public enum VoxMaterial {
 
 public class VoxMaterialManager : MonoBehaviour {
 
+    public static VoxMaterialManager main { get; private set; }
+
+
     [SerializeField] private List<Color> snowColors;
     [SerializeField] private List<Color> asphaltColors;
     [SerializeField] private List<Color> metalColors;
@@ -44,6 +47,12 @@ public class VoxMaterialManager : MonoBehaviour {
 
     [SerializeField] private Color lastColor;
     [SerializeField] private Vector2 lastCoord;
+
+
+    private void Awake() {
+        main = this;
+    }
+
 
     public VoxMaterial GetMaterial(RaycastHit hit) {
         Color color;

@@ -7,8 +7,6 @@ public class CharacterInteractivity : MonoBehaviour
 
     [HideInInspector] public Character character;
 
-    [SerializeField] private UIController uiController;
-
     [SerializeField] private LayerMask layerMask;
     
     [HideInInspector] public InteractiveObject activeObject;
@@ -29,14 +27,13 @@ public class CharacterInteractivity : MonoBehaviour
                     if (iobject != activeObject)
                     {
                         activeObject = iobject;
-                        if (uiController is { }) uiController.InteractShow(iobject.name);
+                        UIController.main.InteractShow(iobject.name);
                     }
                     return;
                 }
             }
         }
-
-        if (uiController is { }) uiController.InteractHide();
+        UIController.main.InteractHide();
         activeObject = null;
     }
 

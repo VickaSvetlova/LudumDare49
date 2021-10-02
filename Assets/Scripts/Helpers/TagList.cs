@@ -1,4 +1,6 @@
 ﻿
+using UnityEngine;
+
 public sealed class TagList {
 
     public const string Untagged = "Untagged";
@@ -9,5 +11,16 @@ public sealed class TagList {
     public const string Player = "Player";
     public const string GameController = "GameController";
     public const string InteractiveObject = "InteractiveObject";
+
+}
+
+public static class TagHelper {
+
+    public static void SetTagRecursively(this GameObject go, string tagName) {
+        go.tag = tagName;
+        foreach (Transform t in go.transform) {
+            t.gameObject.SetTagRecursively(tagName);
+        }
+    }
 
 }

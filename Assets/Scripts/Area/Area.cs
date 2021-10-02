@@ -5,13 +5,11 @@ using UnityEngine;
 public class Area : MonoBehaviour {
 
     [Header("Sound")]
-    [SerializeField] private AmbientSoundSystem ambientSound;
     [SerializeField] private AudioClip ambientClip;
     [SerializeField] private float ambientVolume;
 
 
     [Header("Light")]
-    [SerializeField] private EnvironmentLightSystem environmentLight;
     [SerializeField][ColorUsage(true,true)] public Color environmentColor;
     [SerializeField] public float environmentColorIntensity = 1f;
     [SerializeField] public float environmentReflectionIntensity = 1f;
@@ -30,8 +28,8 @@ public class Area : MonoBehaviour {
     public void Enter() {
         if (current == this) return;
         if (current) current.OnExit();
-        ambientSound.PlaySmooth(ambientClip, ambientVolume);
-        environmentLight.Set(environmentColor, environmentColorIntensity, environmentReflectionIntensity,
+        AmbientSoundSystem.main.PlaySmooth(ambientClip, ambientVolume);
+        EnvironmentLightSystem.main.Set(environmentColor, environmentColorIntensity, environmentReflectionIntensity,
             sunColor, sunColorIntensity, flashlightEnabled);
         OnEnter();
         
@@ -39,8 +37,8 @@ public class Area : MonoBehaviour {
 
     public void Exit() {
         if (current != this) return;
-        ambientSound.PlaySmooth(null, 0);
-        environmentLight.SetDefault();
+        AmbientSoundSystem.main.PlaySmooth(null, 0);
+        EnvironmentLightSystem.main.SetDefault();
     }
 
     public static void Change(Area area) {
