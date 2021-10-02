@@ -156,7 +156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1123160550593666581}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1447445483
 AudioSource:
@@ -254,6 +254,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &299219453342349901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8230184259062403609}
+  m_Layer: 0
+  m_Name: torsoPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8230184259062403609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299219453342349901}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1123160550593666581}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &350599337621734575
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,6 +317,7 @@ Transform:
   - {fileID: 4883615435960909441}
   - {fileID: 9069830841842431707}
   - {fileID: 1379249925}
+  - {fileID: 8230184259062403609}
   - {fileID: 1447445484}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -323,6 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headPoint: {fileID: 1379249925}
+  torsoPoint: {fileID: 8230184259062403609}
 --- !u!114 &462589729328036781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,7 +367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dda68969a79a5c47b578b617e7d5fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voxMaterialManager: {fileID: 0}
   footAudioSource: {fileID: 1447445483}
   headAudioSource: {fileID: 1379249924}
   stepClips:
@@ -349,10 +380,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 98cceec519eb38644bd91978565828b6, type: 3}
   - {fileID: 0}
   jumpClips: []
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  voxMaterial: 0
 --- !u!1 &511718690917427188
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,7 +855,6 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

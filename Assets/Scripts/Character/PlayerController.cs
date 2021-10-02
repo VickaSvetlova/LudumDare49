@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float zoomSens = 10f;
     [SerializeField] private Vector3 zoomDirection = new Vector3(0, .1f, -1f);
     [SerializeField] private bool allowFPV = true;
+    [SerializeField] private float offsetHorizontal;
 
     [SerializeField] private LayerMask collisionMask;
 
@@ -69,17 +70,26 @@ public class PlayerController : MonoBehaviour
 
     void SetFPV(bool value) {
         isFPV = value;
-        character.model.SetRenderType(value ? RenderType.Shadow : RenderType.ModelShadow);
+        _SetFPV(isFPV);
     }
 
     void SetTempFPV(bool value) {
         isTempFPV = value;
-        character.model.SetRenderType(value ? RenderType.Shadow : RenderType.ModelShadow);
+        _SetFPV(isTempFPV);
+    }
+
+    void _SetFPV(bool value) {
+        if (value) {
+            character.model.SetRenderType(RenderType.Shadow);
+            cameraTransformZ.localPosition = Vector3.zero;
+        } else {
+            character.model.SetRenderType(RenderType.ModelShadow);
+        }
     }
 
     void CameraMove() {
         if (isFPV) {
-            cameraTransformZ.position = character.model.headPoint.position;
+            cameraTransformH.position = character.model.headPoint.position;
         } else {
             float tempZoom = zoom;
             RaycastHit hit;
@@ -97,12 +107,12 @@ public class PlayerController : MonoBehaviour
                 }
             }
             if (isTempFPV) {
-                cameraTransformZ.position = character.model.headPoint.position;
+                cameraTransformH.position = character.model.headPoint.position;
             } else {
                 cameraTransformZ.localPosition = zoomDirection * tempZoom;
             }
+            cameraTransformH.position = character.model.headPoint.position + cameraTransformH.right * offsetHorizontal;
         }
-        cameraTransformH.position = character.model.headPoint.position;
     }
 
 
