@@ -7,12 +7,10 @@ public class CharacterInteractivity : MonoBehaviour
 
     [HideInInspector] public Character character;
 
-
     [SerializeField] private UIController uiController;
 
     [SerializeField] private LayerMask layerMask;
-
-
+    
     [HideInInspector] public InteractiveObject activeObject;
 
 
@@ -28,15 +26,17 @@ public class CharacterInteractivity : MonoBehaviour
             if (Physics.Raycast(character.model.headPoint.position, hit.point - character.model.headPoint.position, out hit, 1.5f, layerMask)) {
                 if (hit.collider.tag == TagList.InteractiveObject) {
                     var iobject = hit.collider.GetComponentInParent<InteractiveObject>();
-                    if (iobject != activeObject) {
+                    if (iobject != activeObject)
+                    {
                         activeObject = iobject;
-                        uiController.InteractShow(iobject.name);
+                        if (uiController is { }) uiController.InteractShow(iobject.name);
                     }
                     return;
                 }
             }
         }
-        uiController.InteractHide();
+
+        if (uiController is { }) uiController.InteractHide();
         activeObject = null;
     }
 
