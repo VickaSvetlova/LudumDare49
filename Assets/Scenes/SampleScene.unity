@@ -688,6 +688,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1843388712634701599, guid: 83d90e10a90fab54f9d641266d47afb1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843388712634701599, guid: 83d90e10a90fab54f9d641266d47afb1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843388712634701599, guid: 83d90e10a90fab54f9d641266d47afb1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83d90e10a90fab54f9d641266d47afb1, type: 3}
 --- !u!1 &653260035
@@ -1743,6 +1755,10 @@ PrefabInstance:
     - target: {fileID: 1064401478550423828, guid: 26a654555af871f4f89b09bcd9f4cb9d, type: 3}
       propertyPath: allowFPV
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064401478550423828, guid: 26a654555af871f4f89b09bcd9f4cb9d, type: 3}
+      propertyPath: collisionMask.m_Bits
+      value: 129
       objectReference: {fileID: 0}
     - target: {fileID: 1334607952335439489, guid: 26a654555af871f4f89b09bcd9f4cb9d, type: 3}
       propertyPath: m_Layer

@@ -8,19 +8,25 @@ public class Door : InteractiveObject {
     public bool isLocked;
 
     [SerializeField] private Transform rotator;
+    private float targetAngle;
 
     public override void Use(Character character) {
         base.Use(character);
+        Debug.Log(transform.InverseTransformPoint(character.transform.position).x);
+        if (transform.InverseTransformPoint(character.transform.position).x > 0) {
+            targetAngle = (isOpen) ? 90f : 0f;
+        } else {
+            targetAngle = (isOpen) ? 90f : 180f;
+        }
         StopAllCoroutines();
         StartCoroutine(IEDoorRotation());
         isOpen = !isOpen;
     }
 
     IEnumerator IEDoorRotation() {
-        var targetVector = (isOpen) ? Vector3.right : Vector3.forward;
         for (int i = 0; i < 300; i++) {
             yield return new WaitForSeconds(0.01f);
-            rotator.forward = Vector3.Lerp(rotator.forward, targetVector, i / 300f);
+            rotator.localEulerAngles = Vector3.up * Mathf.Lerp(rotator.localEulerAngles.y, targetAngle, i / 300f);
         }
     }
 
