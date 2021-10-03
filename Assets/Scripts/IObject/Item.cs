@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Item : InteractiveObject
 {
-
+    public int id;
 }

@@ -23,7 +23,7 @@ public class GameSettings : MonoBehaviour {
     }
 
     private void Start() {
-        Load();
+        data = Load();
     }
 
     private void OnEnable() {
@@ -38,17 +38,19 @@ public class GameSettings : MonoBehaviour {
         UIController.main.ShowMenu(false);
     }
 
-    public void Load() {
+    public SettingsData Load() {
         //string encrypt = PlayerPrefs.GetString("Settings");
         //if (!string.IsNullOrEmpty(encrypt)) {
         //    data = JsonUtility.FromJson<SettingsData>(encrypt);
         //}
-        data.mouseSensivity = 1.9f;
+        var settings = new SettingsData();
+        settings.mouseSensivity = 1.9f;
+        return settings;
     }
 
     public void Default() {
-        Load();
-        OnEnable();
+        var settings = Load();
+        mouseSensSlider.value = settings.mouseSensivity;
     }
 
 

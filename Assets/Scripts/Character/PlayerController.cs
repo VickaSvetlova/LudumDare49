@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
     public bool isFPV { get; private set; } = false;
     public bool isTempFPV { get; private set; } = false;
     [HideInInspector] public bool isActive = true;
-    [HideInInspector] public bool isInMenu = false;
 
 
     void Awake() {
@@ -43,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update() {
         UIControl();
-        if (!isActive || isInMenu) {
+        if (!isActive || UIController.main.isMouseControlled) {
             character.movement.inputMoveDirection = Vector3.zero;
             return;
         }
@@ -52,15 +51,17 @@ public class PlayerController : MonoBehaviour
     }
 
     void LateUpdate() {
-        if (!isActive || isInMenu) return;
+        if (!isActive || UIController.main.isMouseControlled) return;
         CameraZoom();
         CameraMove();
     }
 
     void UIControl() {
         if (Input.GetButtonDown("Cancel")) {
-            isInMenu = !isInMenu;
-            UIController.main.ShowMenu(isInMenu);
+            UIController.main.ShowMenu(!UIController.main.isMouseControlled);
+        }
+        if (Input.GetButtonDown("Inventory")) {
+            UIController.main.ShowInventory(!UIController.main.isMouseControlled);
         }
     }
 

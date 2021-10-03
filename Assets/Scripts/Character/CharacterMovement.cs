@@ -52,7 +52,7 @@ public class CharacterMovement : MonoBehaviour
     }
 
     private void Update() {
-        if (PlayerController.main.isInMenu) return; 
+        if (UIController.main.isMouseControlled) return; 
         if (!character.isHidden && character.isActive) {
             Grounding();
             var speed = (isCrowling) ? crowlSpeed : moveSpeed;
@@ -105,6 +105,7 @@ public class CharacterMovement : MonoBehaviour
             controller.center = new Vector3(0, 0.83f, 0);
         }
         isCrowling = value;
+        character.model.ChangeHeadHeight(isCrowling);
         character.model.animator.SetBool("IsCrowling", isCrowling);
     }
 

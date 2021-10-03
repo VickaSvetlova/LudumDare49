@@ -28,7 +28,7 @@ public class CrashObject : InteractiveObject {
 
     public override void Use(Character character) {
         base.Use(character);
-        Crash(character.model.torsoPoint.position);
+        Crash(character.model.headPoint.position);
     }
 
 }

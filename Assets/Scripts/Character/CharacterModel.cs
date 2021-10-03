@@ -14,7 +14,8 @@ public enum RenderType {
 public class CharacterModel : MonoBehaviour {
 
     public Transform headPoint;
-    public Transform torsoPoint;
+    public float headHeight = 1.7f;
+    public float headHeightCrowl = 0.7f;
     public Animator animator { get; protected set; }
 
     private Renderer[] renderers;
@@ -23,6 +24,20 @@ public class CharacterModel : MonoBehaviour {
     void Awake() {
         animator = GetComponent<Animator>();
         renderers = GetComponentsInChildren<Renderer>();
+    }
+
+    public void ChangeHeadHeight(bool isCrowling) {
+        StopAllCoroutines();
+        var headPos = headPoint.localPosition;
+        headPos.y = (isCrowling) ? headHeightCrowl : headHeight;
+        StartCoroutine(IEChangeHeadHeight(headPos));
+    }
+
+    IEnumerator IEChangeHeadHeight(Vector3 targetPos) {
+        while (headPoint.localPosition != targetPos) {
+            yield return new WaitForEndOfFrame();
+            headPoint.localPosition = Vector3.MoveTowards(headPoint.localPosition, targetPos, 5f * Time.deltaTime);
+        }
     }
 
     public void AnimationPause() {
