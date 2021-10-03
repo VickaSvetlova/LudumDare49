@@ -95,12 +95,8 @@ public class PlayerController : MonoBehaviour
     }
 
     void _SetFPV(bool value) {
-        if (value) {
-            character.model.SetRenderType(RenderType.Shadow);
-            cameraTransformZ.localPosition = Vector3.zero;
-        } else {
-            character.model.SetRenderType(RenderType.ModelShadow);
-        }
+        character.model.SetHideForLocal(value);
+        if (value) cameraTransformZ.localPosition = Vector3.zero;
     }
 
     void CameraMove() {

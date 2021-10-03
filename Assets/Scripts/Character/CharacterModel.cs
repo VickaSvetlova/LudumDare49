@@ -17,13 +17,11 @@ public class CharacterModel : MonoBehaviour {
     public float headHeight = 1.7f;
     public float headHeightCrowl = 0.7f;
     public Animator animator { get; protected set; }
-
-    private Renderer[] renderers;
+    
     private float prevAnimSpeed;
 
     void Awake() {
         animator = GetComponent<Animator>();
-        renderers = GetComponentsInChildren<Renderer>();
     }
 
     public void ChangeHeadHeight(bool isCrowling) {
@@ -51,23 +49,8 @@ public class CharacterModel : MonoBehaviour {
         animator.speed = prevAnimSpeed;
     }
 
-    public void SetRenderType(RenderType value) {
-        if (value == RenderType.None) {
-            foreach (var renderer in renderers) {
-                renderer.enabled = false;
-            }
-        } else {
-            var shadowMode = ShadowCastingMode.On;
-            switch (value) {
-                case RenderType.Model: shadowMode = ShadowCastingMode.Off; break;
-                case RenderType.Shadow: shadowMode = ShadowCastingMode.ShadowsOnly; break;
-                case RenderType.ModelShadow: shadowMode = ShadowCastingMode.On; break;
-            }
-            foreach (var renderer in renderers) {
-                renderer.enabled = true;
-                renderer.shadowCastingMode = shadowMode;
-            }
-        }
+    public void SetHideForLocal(bool value) {
+        gameObject.SetLayerRecursively(value ? LayerList.HideForLocalPlayer : LayerList.Player);
     }
 
     public void DeathAnimEvent() {
