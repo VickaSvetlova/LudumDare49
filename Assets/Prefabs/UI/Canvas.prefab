@@ -1596,6 +1596,7 @@ MonoBehaviour:
   interactLabel: {fileID: 8247677543734508431}
   interactPanel: {fileID: 7708675056547682951}
   gameSettings: {fileID: 3000877346086863616}
+  inventoryPanel: {fileID: 1618811910}
   itemLables:
   - {fileID: 1445310896}
   - {fileID: 4124486478313860485}
