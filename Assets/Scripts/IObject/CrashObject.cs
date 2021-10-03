@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class CrashObject : InteractiveObject
@@ -15,6 +14,7 @@ public class CrashObject : InteractiveObject
 
     protected override void Awake()
     {
+        
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null && clip != null)
         {

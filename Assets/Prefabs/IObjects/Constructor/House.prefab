@@ -618,6 +618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
+  clip: {fileID: 0}
   requiredItem: 0
   destructible: 0
 --- !u!1 &6679992152486303526
