@@ -1718,7 +1718,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4124486476684000843, guid: aff210c32e80c0a4eb3173aa2e91dc0a, type: 3}
       propertyPath: m_Text
-      value: Water
+      value: Soda
       objectReference: {fileID: 0}
     - target: {fileID: 4124486476927880424, guid: aff210c32e80c0a4eb3173aa2e91dc0a, type: 3}
       propertyPath: m_Pivot.x
@@ -1811,7 +1811,7 @@ PrefabInstance:
     - target: {fileID: 4124486477637491578, guid: aff210c32e80c0a4eb3173aa2e91dc0a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f77340f23bbd27d429a997875de620f2, type: 3}
+      objectReference: {fileID: 21300000, guid: f405b8cb3c277c34e954af3e2049243e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aff210c32e80c0a4eb3173aa2e91dc0a, type: 3}
 --- !u!224 &4124486478053204875 stripped
@@ -1932,7 +1932,7 @@ PrefabInstance:
     - target: {fileID: 4124486477637491578, guid: aff210c32e80c0a4eb3173aa2e91dc0a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f77340f23bbd27d429a997875de620f2, type: 3}
+      objectReference: {fileID: 21300000, guid: 77c3b923401919c4493c49a6a2169c7b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aff210c32e80c0a4eb3173aa2e91dc0a, type: 3}
 --- !u!114 &4124486478313860485 stripped

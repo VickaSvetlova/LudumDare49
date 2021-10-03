@@ -62,7 +62,7 @@ public class UIController : MonoBehaviour {
 
     public void UpdateItemCounts(List<int> items) {
         for (int i = 0; i < itemLables.Length; i++) {
-            itemLables[i].text = items[i].ToString();
+            itemLables[i].text = "x" + items[i].ToString();
         }
     }
 
