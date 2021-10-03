@@ -17,6 +17,7 @@ public class CharacterInventory : MonoBehaviour {
     }
 
     public bool HasItem(ItemType type) {
+        if (type == ItemType.Null) return true;
         return items[(int)type] > 0;
     }
 

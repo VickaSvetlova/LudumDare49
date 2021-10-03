@@ -28,7 +28,7 @@ MonoBehaviour:
   character: {fileID: 0}
   layerMask:
     serializedVersion: 2
-    m_Bits: 129
+    m_Bits: 385
   activeObject: {fileID: 0}
   distance: 2
 --- !u!114 &1064401478550423828
@@ -79,15 +79,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4786321173424982836, guid: 79be600e90ea6ad42bec45972ea07b8b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.17122543
       objectReference: {fileID: 0}
     - target: {fileID: 4786321173424982836, guid: 79be600e90ea6ad42bec45972ea07b8b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.17
+      value: 0.00000023841858
       objectReference: {fileID: 0}
     - target: {fileID: 4786321173424982836, guid: 79be600e90ea6ad42bec45972ea07b8b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.32
+      value: -2.918061
       objectReference: {fileID: 0}
     - target: {fileID: 4786321173424982836, guid: 79be600e90ea6ad42bec45972ea07b8b, type: 3}
       propertyPath: m_LocalRotation.w
