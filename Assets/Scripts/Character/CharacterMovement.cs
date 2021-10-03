@@ -93,9 +93,9 @@ public class CharacterMovement : MonoBehaviour
     }
 
     public void ChargeJump() {
-        if (character.inventory.HasItem(ItemType.Soda)) {
+        if (InventorySystem.main.HasItem(ItemType.Soda)) {
             isJumpCharged = true;
-            character.inventory.RemoveItem(ItemType.Soda);
+            InventorySystem.main.RemoveItem(ItemType.Soda);
         }
     }
 

@@ -59,10 +59,10 @@ public class CrashObject : InteractiveObject
     public override void Use(Character character)
     {
         base.Use(character);
-        if (destructible && character.inventory.HasItem(requiredItem))
+        if (destructible && InventorySystem.main.HasItem(requiredItem))
         {
             Crash(character.model.headPoint.position);
-            character.inventory.RemoveItem(requiredItem);
+            InventorySystem.main.RemoveItem(requiredItem);
         }
     }
 }
