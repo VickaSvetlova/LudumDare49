@@ -6,15 +6,15 @@ public class CrashObject : InteractiveObject {
 
     private Rigidbody[] rigidBodies;
 
-
-    // Start is called before the first frame update
-    void Awake() {
+    protected override void Awake() {
+        base.Awake();
         rigidBodies = GetComponentsInChildren<Rigidbody>();
     }
 
 
     public void Crash(Vector3 explosivePos) {
         foreach (var rigidBody in rigidBodies) {
+            rigidBody.GetComponent<MeshCollider>().convex = true;
             rigidBody.isKinematic = false;
             rigidBody.AddExplosionForce(100f, explosivePos, 20f);
         }

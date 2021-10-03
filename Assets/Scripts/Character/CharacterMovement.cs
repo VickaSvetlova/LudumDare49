@@ -9,7 +9,12 @@ public class CharacterMovement : MonoBehaviour
 
 
     [SerializeField] private float moveSpeed = 4f;
+    [SerializeField] private float crowlSpeed = 1.2f;
     [SerializeField] private float turnSpeed = 10f;
+    [SerializeField] private float crowlTurnSpeed = 2f;
+
+    [SerializeField] private float height = 1.5f;
+    [SerializeField] private float crowlingHeight = 0.5f;
 
     [SerializeField] private float gravityForce = -9.81f;
     [SerializeField] private float jumpForce = 5f;
@@ -23,11 +28,12 @@ public class CharacterMovement : MonoBehaviour
     [HideInInspector] public VoxMaterial groundMaterial;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Vector3 slopeDirection = Vector3.up;
-    private float slopeAngle;
+    [SerializeField] private float slopeAngle;
     public bool isGrounded {
         get { return controller.stepOffset != 0; }
         private set { controller.stepOffset = (value) ? stepOffset : 0; }
     }
+    public bool isCrowling { get; private set; }
 
 
 
@@ -38,6 +44,7 @@ public class CharacterMovement : MonoBehaviour
     [HideInInspector] public Vector3 inputMoveDirection;
     private float gravity = -2f;
     private float fallinStartY = 0;
+    private float fallTimer;
 
     private void Awake() {
         character = GetComponent<Character>();
@@ -45,10 +52,13 @@ public class CharacterMovement : MonoBehaviour
     }
 
     private void Update() {
+        if (PlayerController.main.isInMenu) return; 
         if (!character.isHidden && character.isActive) {
             Grounding();
+            var speed = (isCrowling) ? crowlSpeed : moveSpeed;
             if (inputMoveDirection != Vector3.zero) {
-                controller.Move(inputMoveDirection * moveSpeed * Time.deltaTime);
+                controller.Move(inputMoveDirection * speed * Time.deltaTime);
+                var turnSpeed = (isCrowling) ? crowlTurnSpeed : this.turnSpeed;
                 character.transform.forward = Vector3.RotateTowards(character.transform.forward, inputMoveDirection, turnSpeed * Time.deltaTime, 1f);
             }
         }
@@ -61,18 +71,48 @@ public class CharacterMovement : MonoBehaviour
 
     public void Jump() {
         if (isGrounded && slopeAngle < controller.slopeLimit) {
-            isGrounded = false;
-            gravity = jumpForce;
-            fallinStartY = transform.position.y;
-            controller.Move(Vector3.up * gravity * Time.deltaTime);
-            character.model.animator.Play("Jump");
-            character.model.animator.SetBool("IsGrounded", isGrounded);
+            if (isCrowling) {
+                ChangeCrowl(false);
+            } else {
+                isGrounded = false;
+                gravity = jumpForce;
+                fallinStartY = transform.position.y;
+                controller.Move(Vector3.up * gravity * Time.deltaTime);
+                character.model.animator.Play("Jump");
+                character.model.animator.SetBool("IsGrounded", isGrounded);
+            }
         }
+    }
+
+    public void Crowl() {
+        if (isGrounded && slopeAngle < controller.slopeLimit) {
+            ChangeCrowl(!isCrowling);
+        }
+    }
+
+    private void ChangeCrowl(bool value, bool force = false) {
+        if (value) {
+            controller.height = crowlingHeight;
+            controller.center = new Vector3(0, 0.83f / 2f, 0);
+        } else {
+            if (!force) {
+                var ray = new Ray(transform.position, Vector3.up);
+                if (Physics.SphereCast(ray, controller.radius, 1.5f, layerMask)) {
+                    return;
+                }
+            }
+            controller.height = height;
+            controller.center = new Vector3(0, 0.83f, 0);
+        }
+        isCrowling = value;
+        character.model.animator.SetBool("IsCrowling", isCrowling);
     }
 
     private void Grounding() {
         if (controller.isGrounded) {
             if (!isGrounded) {
+                fallTimer = 0;
+                ChangeCrowl(false, true);
                 isGrounded = true;
                 gravity = gravityForce;
                 if (fallinStartY - transform.position.y > fallinDistance) character.model.animator.SetTrigger("Roll");
@@ -90,13 +130,14 @@ public class CharacterMovement : MonoBehaviour
                 groundMaterial = newVoxMaterial;
             }
         } else {
+            fallTimer += Time.deltaTime;
             if (isGrounded) {
                 isGrounded = false;
-                gravity = 0;
+                gravity = -2f;
                 fallinStartY = transform.position.y;
             }
             if (gravity > gravityForce) gravity += gravityForce * Time.deltaTime;
         }
-        character.model.animator.SetBool("IsGrounded", isGrounded && slopeAngle < controller.slopeLimit);
+        character.model.animator.SetBool("IsGrounded", (isGrounded && slopeAngle < controller.slopeLimit) || fallTimer < .01f);
     }
 }

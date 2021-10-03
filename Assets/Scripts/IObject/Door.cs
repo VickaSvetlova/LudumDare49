@@ -12,7 +12,6 @@ public class Door : InteractiveObject {
 
     public override void Use(Character character) {
         base.Use(character);
-        Debug.Log(transform.InverseTransformPoint(character.transform.position).x);
         if (transform.InverseTransformPoint(character.transform.position).x > 0) {
             targetAngle = (isOpen) ? 90f : 0f;
         } else {

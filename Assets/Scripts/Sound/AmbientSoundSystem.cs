@@ -9,7 +9,6 @@ public class AmbientSoundSystem : MonoBehaviour {
     [SerializeField] private float fadeInSpeed;
     [SerializeField] private float fadeOutSpeed;
     private float clipVolume;
-    private float _factor = 1f;
 
     private void Awake() {
         main = this;

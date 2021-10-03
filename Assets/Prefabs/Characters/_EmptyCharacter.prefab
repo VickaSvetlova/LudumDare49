@@ -58,19 +58,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
+  crowlSpeed: 1.2
   turnSpeed: 10
+  crowlTurnSpeed: 2
+  height: 1.5
+  crowlingHeight: 0.5
   gravityForce: -9.81
   jumpForce: 5
   fallinDistance: 3
   stepOffset: 0.3
   groundMaterial: 0
-  voxMaterialManager: {fileID: 0}
   layerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 129
+  slopeDirection: {x: 0, y: 1, z: 0}
   slopeAngle: 0
   inputMoveDirection: {x: 0, y: 0, z: 0}
-  gravityDirection: {x: 0, y: 1, z: 0}
 --- !u!143 &4786321173424982834
 CharacterController:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ public class CharacterInteractivity : MonoBehaviour
     
     [HideInInspector] public InteractiveObject activeObject;
 
+    [SerializeField] private float distance = 2f;
+
 
     // Start is called before the first frame update
     void Awake() {
@@ -21,7 +23,7 @@ public class CharacterInteractivity : MonoBehaviour
     void FixedUpdate() {
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, layerMask)) {
-            if (Physics.Raycast(character.model.headPoint.position, hit.point - character.model.headPoint.position, out hit, 1.5f, layerMask)) {
+            if (Physics.Raycast(character.model.headPoint.position, hit.point - character.model.headPoint.position, out hit, distance, layerMask)) {
                 if (hit.collider.tag == TagList.InteractiveObject) {
                     var iobject = hit.collider.GetComponentInParent<InteractiveObject>();
                     if (iobject != activeObject)

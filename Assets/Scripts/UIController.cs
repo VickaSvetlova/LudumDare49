@@ -9,11 +9,16 @@ public class UIController : MonoBehaviour {
 
     [SerializeField] private Text interactLabel;
 
+    [SerializeField] private GameSettings gameSettings;
+
     public bool isMouseControlled;
 
     private void Awake() {
         main = this;
-        SetMouseControl(false);
+    }
+
+    private void Start() {
+        ShowMenu(false);
     }
 
     public void InteractShow(string text) {
@@ -26,11 +31,6 @@ public class UIController : MonoBehaviour {
     }
 
 
-    private void Update() {
-        if (Input.GetButtonDown("Cancel")) SetMouseControl(!isMouseControlled);
-    }
-
-
     public void SetMouseControl(bool value) {
         isMouseControlled = value;
         if (isMouseControlled) {
@@ -40,6 +40,12 @@ public class UIController : MonoBehaviour {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+    }
+
+    public void ShowMenu(bool value) {
+        gameSettings.gameObject.SetActive(value);
+        SetMouseControl(value);
+        Time.timeScale = (value) ? 0f : 1f;
     }
 
 }
