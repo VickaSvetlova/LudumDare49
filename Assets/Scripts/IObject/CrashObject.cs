@@ -8,6 +8,8 @@ public class CrashObject : InteractiveObject {
 
     public ItemType requiredItem;
 
+    public bool destructible;
+
     protected override void Awake() {
         base.Awake();
         rigidBodies = GetComponentsInChildren<Rigidbody>();
@@ -30,7 +32,7 @@ public class CrashObject : InteractiveObject {
 
     public override void Use(Character character) {
         base.Use(character);
-        if (character.inventory.HasItem(requiredItem)) {
+        if (destructible && character.inventory.HasItem(requiredItem)) {
             Crash(character.model.headPoint.position);
             character.inventory.RemoveItem(requiredItem);
         }

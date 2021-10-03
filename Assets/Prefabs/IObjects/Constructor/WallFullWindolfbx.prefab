@@ -390,6 +390,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
+  requiredItem: 3
+  destructible: 1
 --- !u!1 &4006349826071775145
 GameObject:
   m_ObjectHideFlags: 0

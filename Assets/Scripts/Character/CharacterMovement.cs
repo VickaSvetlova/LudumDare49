@@ -18,8 +18,9 @@ public class CharacterMovement : MonoBehaviour
 
     [SerializeField] private float gravityForce = -9.81f;
     [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private float jumpChargedForce = 20f;
+    [SerializeField] private float jumpChargedForce = 8f;
     [SerializeField] private float fallinDistance = 3f;
+    [SerializeField] private float fallinDistanceToDie = 10f;
     [SerializeField] private float stepOffset = 0.3f;
 
 
@@ -45,7 +46,7 @@ public class CharacterMovement : MonoBehaviour
 
     [HideInInspector] public Vector3 inputMoveDirection;
     private float gravity = -2f;
-    private float fallinStartY = 0;
+    [SerializeField] private float fallinStartY = 0;
     private float fallTimer;
 
     private void Awake() {
@@ -83,7 +84,6 @@ public class CharacterMovement : MonoBehaviour
                 } else {
                     gravity = jumpForce;
                 }
-                fallinStartY = transform.position.y;
                 controller.Move(Vector3.up * gravity * Time.deltaTime);
                 character.model.animator.Play("Jump");
                 character.model.animator.SetBool("IsGrounded", isGrounded);
@@ -130,7 +130,10 @@ public class CharacterMovement : MonoBehaviour
                 ChangeCrowl(false, true);
                 isGrounded = true;
                 gravity = gravityForce;
-                if (fallinStartY - transform.position.y > fallinDistance) character.model.animator.SetTrigger("Roll");
+                float fallinDist = fallinStartY - transform.position.y;
+                if (fallinDist > fallinDistanceToDie) character.Die();
+                else if (fallinDist > fallinDistance) character.model.animator.SetTrigger("Roll");
+                fallinStartY = -1000;
             }
             RaycastHit hit;
             VoxMaterial newVoxMaterial = VoxMaterial.Null;
@@ -149,8 +152,8 @@ public class CharacterMovement : MonoBehaviour
             if (isGrounded) {
                 isGrounded = false;
                 gravity = -2f;
-                fallinStartY = transform.position.y;
             }
+            if (gravity < 0 && fallinStartY == -1000) fallinStartY = transform.position.y;
             if (gravity > gravityForce) gravity += gravityForce * Time.deltaTime;
         }
         character.model.animator.SetBool("IsGrounded", (isGrounded && slopeAngle < controller.slopeLimit) || fallTimer < .01f);
