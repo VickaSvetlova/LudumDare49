@@ -74,12 +74,12 @@ Rigidbody:
   m_GameObject: {fileID: 5411183348630425213}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 0.05
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &5411183348630425209
 MonoBehaviour:
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f29e96c8f36e340accaf6753f53654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Hammer
+  name: 
   itemType: 0
 --- !u!65 &-3345476250654080349
 BoxCollider:
