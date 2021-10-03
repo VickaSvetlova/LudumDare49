@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : InteractiveObject {
+public class Door : CrashObject {
 
     private bool isOpen;
     public bool isLocked;
@@ -11,15 +11,18 @@ public class Door : InteractiveObject {
     private float targetAngle;
 
     public override void Use(Character character) {
-        base.Use(character);
-        if (transform.InverseTransformPoint(character.transform.position).x > 0) {
-            targetAngle = (isOpen) ? 90f : 0f;
+        if (isLocked) {
+            base.Use(character);
         } else {
-            targetAngle = (isOpen) ? 90f : 180f;
+            if (transform.InverseTransformPoint(character.transform.position).x > 0) {
+                targetAngle = (isOpen) ? 90f : 0f;
+            } else {
+                targetAngle = (isOpen) ? 90f : 180f;
+            }
+            StopAllCoroutines();
+            StartCoroutine(IEDoorRotation());
+            isOpen = !isOpen;
         }
-        StopAllCoroutines();
-        StartCoroutine(IEDoorRotation());
-        isOpen = !isOpen;
     }
 
     IEnumerator IEDoorRotation() {
