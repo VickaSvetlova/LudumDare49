@@ -2292,6 +2292,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4075189438464852394, guid: 0f14b4cdeed3ead43a78527ac5577bd8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4972027674399373683, guid: 0f14b4cdeed3ead43a78527ac5577bd8, type: 3}
       propertyPath: m_Name
       value: Floor_metric
