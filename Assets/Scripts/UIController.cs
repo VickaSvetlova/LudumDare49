@@ -40,11 +40,11 @@ public class UIController : MonoBehaviour {
     public void SetMouseControl(bool value) {
         isMouseControlled = value;
         if (isMouseControlled) {
-            Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         } else {
-            Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 

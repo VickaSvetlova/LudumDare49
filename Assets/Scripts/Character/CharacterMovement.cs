@@ -18,6 +18,7 @@ public class CharacterMovement : MonoBehaviour
 
     [SerializeField] private float gravityForce = -9.81f;
     [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private float jumpChargedForce = 20f;
     [SerializeField] private float fallinDistance = 3f;
     [SerializeField] private float stepOffset = 0.3f;
 
@@ -34,6 +35,7 @@ public class CharacterMovement : MonoBehaviour
         private set { controller.stepOffset = (value) ? stepOffset : 0; }
     }
     public bool isCrowling { get; private set; }
+    private bool isJumpCharged;
 
 
 
@@ -75,12 +77,24 @@ public class CharacterMovement : MonoBehaviour
                 ChangeCrowl(false);
             } else {
                 isGrounded = false;
-                gravity = jumpForce;
+                if (isJumpCharged) {
+                    gravity = jumpChargedForce;
+                    isJumpCharged = false;
+                } else {
+                    gravity = jumpForce;
+                }
                 fallinStartY = transform.position.y;
                 controller.Move(Vector3.up * gravity * Time.deltaTime);
                 character.model.animator.Play("Jump");
                 character.model.animator.SetBool("IsGrounded", isGrounded);
             }
+        }
+    }
+
+    public void ChargeJump() {
+        if (character.inventory.HasItem(ItemType.Soda)) {
+            isJumpCharged = true;
+            character.inventory.RemoveItem(ItemType.Soda);
         }
     }
 

@@ -12,18 +12,22 @@ public class CharacterInventory : MonoBehaviour {
         character = GetComponent<Character>();
     }
 
-    public bool HasItem(int id) {
-        return items[id] > 0;
+    private void Start() {
+        UIController.main.UpdateItemCounts(items);
+    }
+
+    public bool HasItem(ItemType type) {
+        return items[(int)type] > 0;
     }
 
     public void AddItem(Item item) {
-        items[item.id]++;
+        items[(int)item.itemType]++;
         Destroy(item.gameObject);
         UIController.main.UpdateItemCounts(items);
     }
 
-    public void RemoveItem(int id) {
-        items[id]--;
+    public void RemoveItem(ItemType type) {
+        items[(int)type]--;
         UIController.main.UpdateItemCounts(items);
     }
 

@@ -65,6 +65,7 @@ MonoBehaviour:
   crowlingHeight: 0.5
   gravityForce: -9.81
   jumpForce: 5
+  jumpChargedForce: 10
   fallinDistance: 3
   stepOffset: 0.3
   groundMaterial: 0

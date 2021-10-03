@@ -76,9 +76,13 @@ PrefabInstance:
       propertyPath: name
       value: Soda
       objectReference: {fileID: 0}
+    - target: {fileID: 5411183348630425209, guid: 4087c28da45517344a0bc79b980323af, type: 3}
+      propertyPath: itemType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5411183348630425213, guid: 4087c28da45517344a0bc79b980323af, type: 3}
       propertyPath: m_Name
-      value: Soda Item
+      value: Soda Item Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5411183348630425214, guid: 4087c28da45517344a0bc79b980323af, type: 3}
       propertyPath: m_RootOrder

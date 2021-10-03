@@ -39,7 +39,6 @@ public class PlayerController : MonoBehaviour
         character = GetComponent<Character>();
     }
 
-
     private void Update() {
         UIControl();
         if (!isActive || UIController.main.isMouseControlled) {
@@ -141,6 +140,7 @@ public class PlayerController : MonoBehaviour
         Vector3 moveFactor = cameraTransformH.forward * input.y + cameraTransformH.right * input.x;
         character.movement.inputMoveDirection = moveFactor;
         if (Input.GetButtonDown("Jump")) character.movement.Jump();
+        if (Input.GetButtonDown("ChargeJump")) character.movement.ChargeJump();
         if (Input.GetButtonDown("Crowl")) character.movement.Crowl();
     }
 
