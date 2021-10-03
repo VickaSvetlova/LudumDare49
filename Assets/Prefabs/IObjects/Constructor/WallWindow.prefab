@@ -1984,6 +1984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
+  requiredItem: 1
 --- !u!1 &8433211677987404058
 GameObject:
   m_ObjectHideFlags: 0

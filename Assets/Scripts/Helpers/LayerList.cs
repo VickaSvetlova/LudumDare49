@@ -11,6 +11,7 @@ public sealed class LayerList {
     public static int UI { get; } = LayerMask.NameToLayer("UI");
     public static int Player { get; } = LayerMask.NameToLayer("Player");
     public static int InteractiveObject { get; } = LayerMask.NameToLayer("InteractiveObject");
+    public static int Item { get; } = LayerMask.NameToLayer("Item");
 
 }
 

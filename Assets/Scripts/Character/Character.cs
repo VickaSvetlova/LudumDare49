@@ -23,8 +23,10 @@ public class Character : MonoBehaviour {
         isHidden = value;
     }
 
+    [ContextMenu("Die")]
     public void Die() {
-
+        PlayerController.main.isActive = false;
+        model.animator.Play("Death");
     }
 
 }

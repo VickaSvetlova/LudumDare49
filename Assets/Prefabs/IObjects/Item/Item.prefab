@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5411183347672055909}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Rotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 5411183348630425209}
   - component: {fileID: -3345476250654080349}
   - component: {fileID: 3351597297117715574}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Item
   m_TagString: InteractiveObject
   m_Icon: {fileID: 0}
@@ -95,10 +95,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Hammer
   itemType: 0
-  rotator: {fileID: 5411183347672055909}
-  rotationSpeed: 30
-  maxHeightOffset: 0.7
-  minHeightOffset: 0.5
 --- !u!65 &-3345476250654080349
 BoxCollider:
   m_ObjectHideFlags: 0

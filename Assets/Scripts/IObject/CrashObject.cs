@@ -18,7 +18,7 @@ public class CrashObject : InteractiveObject {
         foreach (var rigidBody in rigidBodies) {
             rigidBody.GetComponent<MeshCollider>().convex = true;
             rigidBody.isKinematic = false;
-            rigidBody.AddExplosionForce(100f, explosivePos, 20f);
+            rigidBody.AddExplosionForce(150f, explosivePos, 20f);
         }
     }
 
