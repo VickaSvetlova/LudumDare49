@@ -56,6 +56,7 @@ public class UIController : MonoBehaviour {
     }
 
     public void ShowInventory(bool value) {
+        UpdateItemCounts(InventorySystem.main.items);
         inventoryPanel.gameObject.SetActive(value);
         SetMouseControl(value);
     }

@@ -69,4 +69,9 @@ public class CharacterModel : MonoBehaviour {
             }
         }
     }
+
+    public void DeathAnimEvent() {
+        GameManager.main.Restart();
+    }
+
 }

@@ -21,7 +21,7 @@ public class Item : InteractiveObject
 
     public override void Use(Character character) {
         base.Use(character);
-        character.inventory.AddItem(this);
+        InventorySystem.main.AddItem(this);
     }
 
 }

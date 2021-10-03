@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterInventory : MonoBehaviour {
+public class InventorySystem : MonoBehaviour {
 
-    public Character character { get; private set; }
+    public static InventorySystem main { get; private set; }
 
-    [SerializeField] private List<int> items;
+    public List<int> items;
 
     private void Awake() {
-        character = GetComponent<Character>();
-    }
-
-    private void Start() {
-        UIController.main.UpdateItemCounts(items);
+        if (main) {
+            Destroy(gameObject);
+        } else {
+            main = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     public bool HasItem(ItemType type) {
