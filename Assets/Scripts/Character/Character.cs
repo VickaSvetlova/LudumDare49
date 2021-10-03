@@ -29,4 +29,8 @@ public class Character : MonoBehaviour {
         model.animator.Play("Death");
     }
 
+    private void OnDestroy() {
+        GameManager.main.Restart();
+    }
+
 }
