@@ -15,6 +15,9 @@ public class CrashObject : InteractiveObject {
         rigidBodies = GetComponentsInChildren<Rigidbody>();
     }
 
+    public void Crash() {
+        Crash(transform.position);
+    }
 
     public void Crash(Vector3 explosivePos) {
         foreach (var rigidBody in rigidBodies) {
