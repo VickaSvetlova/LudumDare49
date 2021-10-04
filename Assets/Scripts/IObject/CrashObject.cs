@@ -24,10 +24,9 @@ public class CrashObject : InteractiveObject
         NonCrachebalModel = GetComponentsInChildren<BoxCollider>();
         rigidBodies = GetComponentsInChildren<Rigidbody>(true);
 
-        //foreach (var rb in rigidBodies)
-        //{
-        //    rb.gameObject.SetActive(false);
-        //}
+        foreach (var rb in rigidBodies) {
+            rb.gameObject.SetActive(false);
+        }
     }
 
     public void Crash()
