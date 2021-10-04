@@ -373,7 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   clip: {fileID: 0}
-  requiredItem: 1
+  requiredItem: 2
   destructible: 0
 --- !u!1 &4786168740784104001
 GameObject:
