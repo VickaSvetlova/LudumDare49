@@ -26,6 +26,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4477345051639917323, guid: 79be600e90ea6ad42bec45972ea07b8b, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477345051639917323, guid: 79be600e90ea6ad42bec45972ea07b8b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 940d57d419309ee45b32d74848a2ddaf, type: 3}
+    - target: {fileID: 4477345051639917323, guid: 79be600e90ea6ad42bec45972ea07b8b, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4786321173424982835, guid: 79be600e90ea6ad42bec45972ea07b8b, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter

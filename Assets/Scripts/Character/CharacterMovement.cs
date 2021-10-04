@@ -95,6 +95,7 @@ public class CharacterMovement : MonoBehaviour
         if (InventorySystem.main.HasItem(ItemType.Soda)) {
             isJumpCharged = true;
             InventorySystem.main.RemoveItem(ItemType.Soda);
+            character.audio.PlayTalkSound();
         }
     }
 

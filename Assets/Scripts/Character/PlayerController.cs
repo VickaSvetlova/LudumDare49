@@ -39,6 +39,10 @@ public class PlayerController : MonoBehaviour
         character = GetComponent<Character>();
     }
 
+    private void Start() {
+        zoom = InventorySystem.main.zoom;
+    }
+
     private void Update() {
         UIControl();
         if (!isActive || UIController.main.isMouseControlled) {
@@ -80,6 +84,7 @@ public class PlayerController : MonoBehaviour
             zoom -= zoomSens * mouseWheel;
             zoom = Mathf.Clamp(zoom, zoomMin, zoomMax);
             if (allowFPV && zoom == zoomMin) SetFPV(true);
+            InventorySystem.main.zoom = zoom;
         }
     }
 

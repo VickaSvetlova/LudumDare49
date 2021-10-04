@@ -6,6 +6,8 @@ public class InventorySystem : MonoBehaviour {
 
     public static InventorySystem main { get; private set; }
 
+    public float zoom = 2f;
+
     public List<int> items;
 
     private void Awake() {

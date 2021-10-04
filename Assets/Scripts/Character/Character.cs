@@ -7,6 +7,7 @@ public class Character : MonoBehaviour {
     public CharacterMovement movement { get; private set; }
     public CharacterModel model { get; private set; }
     public CharacterInteractivity interactivity { get; private set; }
+    public CharacterAudio audio { get; private set; }
 
     public bool isActive { get; set; } = true;
     public bool isHidden { get; private set; }
@@ -15,6 +16,7 @@ public class Character : MonoBehaviour {
         movement = GetComponent<CharacterMovement>();
         model = GetComponentInChildren<CharacterModel>();
         interactivity = GetComponent<CharacterInteractivity>();
+        audio = model.GetComponent<CharacterAudio>();
     }
 
     public void SetHidden(bool value) {
