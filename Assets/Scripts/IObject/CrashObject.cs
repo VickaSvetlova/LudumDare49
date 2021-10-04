@@ -51,17 +51,23 @@ public class CrashObject : InteractiveObject
 
     public void Crash(Vector3 explosivePos)
     {
+        MeshCollider firstCollider = null;
         foreach (var rigidBody in rigidBodies)
         {
+            var rigidCollider = rigidBody.GetComponent<MeshCollider>();
+            if (firstCollider == null) {
+                firstCollider = rigidCollider;
+            } else {
+                Physics.IgnoreCollision(firstCollider, rigidCollider, true);
+            }
             foreach (var collider in NonCrachebalModel)
             {
                 collider.gameObject.SetActive(false);
             }
 
             rigidBody.gameObject.SetActive(true);
-            rigidBody.GetComponent<MeshCollider>().convex = true;
             rigidBody.isKinematic = false;
-            rigidBody.AddExplosionForce(150f, explosivePos, 20f);
+            rigidBody.AddExplosionForce(150f, explosivePos, 50f);
         }
 
         if (lightProbs.Length > 0) ShowLightProbs(false);
@@ -102,6 +108,7 @@ public class CrashObject : InteractiveObject
         {
             Crash(character.model.headPoint.position);
             InventorySystem.main.RemoveItem(requiredItem);
+            requiredItem = ItemType.Null;
         }
     }
 }
