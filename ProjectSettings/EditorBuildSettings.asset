@@ -5,13 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Krabs.unity
     guid: 42cf533c48fc10342b87acb470862c77
   - enabled: 1
-    path: Assets/Scenes/Intro.unity
+    path: Assets/Scenes/Main/Intro.unity
     guid: dc9de889b12913d48878da9edf1d1e28
+  - enabled: 1
+    path: Assets/Scenes/Main/Scene 1.unity
+    guid: ce71e75c5e85d564ea255da6e5bd4dfb
+  - enabled: 1
+    path: Assets/Scenes/Main/Legion 1.unity
+    guid: 6d1bbaea45d3c254a8cfa4f66b58db55
+  - enabled: 1
+    path: Assets/Scenes/Main/Legion 2.unity
+    guid: 6a3f1211156044a4ab3ddfe9acf7a869
   m_configObjects: {}

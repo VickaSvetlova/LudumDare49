@@ -11,7 +11,6 @@ public class Door : CrashObject {
     private float targetAngle;
     [SerializeField] private Transform teleportPoint;
     [SerializeField] private bool nextScene;
-    [SerializeField] private int nextSceneIndex;
 
     public override bool CanUse(Character character) {
         return isActive;
@@ -53,7 +52,7 @@ public class Door : CrashObject {
     private void Destr(Character character) {
         base.Use(character);
         if (nextScene) {
-            GameManager.main.LoadScene(nextSceneIndex);
+            GameManager.main.LoadNextScene();
         } else if (teleportPoint) {
             character.transform.position = teleportPoint.position;
             character.transform.rotation = teleportPoint.rotation;
@@ -62,7 +61,7 @@ public class Door : CrashObject {
 
     private void Open(Character character) {
         if (nextScene) {
-            GameManager.main.LoadScene(nextSceneIndex);
+            GameManager.main.LoadNextScene();
         } else if (teleportPoint) {
             character.transform.position = teleportPoint.position;
             character.transform.rotation = teleportPoint.rotation;
