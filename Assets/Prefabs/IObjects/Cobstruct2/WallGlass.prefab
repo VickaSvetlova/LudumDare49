@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Glass
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 658b37cf6f1d6bd4baadcf201bfb9f7d, type: 3}
   requiredItem: 0
   destructible: 1
 --- !u!1 &1162525974169926473

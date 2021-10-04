@@ -761,7 +761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: d540fa764ae370141ba8e6f6af6f4d70, type: 3}
   requiredItem: 2
   destructible: 0
 --- !u!1 &8969160173278832060

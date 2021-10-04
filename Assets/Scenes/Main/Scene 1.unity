@@ -6303,7 +6303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: a13e4f7695d4e4d43a8d537625a3b99d, type: 3}
   requiredItem: 2
   destructible: 1
 --- !u!4 &2131078284

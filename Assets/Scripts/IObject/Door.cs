@@ -54,8 +54,10 @@ public class Door : CrashObject {
         if (nextScene) {
             GameManager.main.LoadNextScene();
         } else if (teleportPoint) {
+            character.movement.controller.enabled = false;
             character.transform.position = teleportPoint.position;
             character.transform.rotation = teleportPoint.rotation;
+            character.movement.controller.enabled = true;
         }
     }
 
@@ -63,8 +65,12 @@ public class Door : CrashObject {
         if (nextScene) {
             GameManager.main.LoadNextScene();
         } else if (teleportPoint) {
+            character.movement.controller.enabled = false;
             character.transform.position = teleportPoint.position;
             character.transform.rotation = teleportPoint.rotation;
+            character.movement.controller.enabled = true;
+            isLocked = false;
+            destructible = false;
         } else {
             if (transform.InverseTransformPoint(character.transform.position).z > 0) {
                 targetAngle = (isOpen) ? 90f : 180f;
@@ -75,6 +81,7 @@ public class Door : CrashObject {
             StartCoroutine(IEDoorRotation());
             isOpen = !isOpen;
             isLocked = false;
+            destructible = false;
         }
     }
 

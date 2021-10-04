@@ -1893,7 +1893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: a13e4f7695d4e4d43a8d537625a3b99d, type: 3}
   requiredItem: 2
   destructible: 1
 --- !u!4 &153033173
@@ -3064,7 +3064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5812130602327144777, guid: 10897e3e1b2aff34a9b3554553e9c98f, type: 3}
       propertyPath: destructible
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10897e3e1b2aff34a9b3554553e9c98f, type: 3}
@@ -3141,8 +3141,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3628443156678852007, guid: 5438a40bbaa51874eae43e3518a7a6fb, type: 3}
+      propertyPath: isActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628443156678852007, guid: 5438a40bbaa51874eae43e3518a7a6fb, type: 3}
       propertyPath: isLocked
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3628443156678852007, guid: 5438a40bbaa51874eae43e3518a7a6fb, type: 3}
       propertyPath: destructible
@@ -12303,36 +12307,6 @@ Light:
   m_CorrespondingSourceObject: {fileID: 2138677392, guid: dae480d47f18d4842960fda6670a6dbc, type: 3}
   m_PrefabInstance: {fileID: 484866095}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1381560900
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1381560901}
-  m_Layer: 0
-  m_Name: TeleportPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1381560901
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1381560900}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.04, y: -0.24355698, z: -2.39}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1386514075 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3953854127382859646, guid: b4c7e52975f182042875f6862b890251, type: 3}
@@ -13768,36 +13742,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3953854127382859646, guid: b4c7e52975f182042875f6862b890251, type: 3}
   m_PrefabInstance: {fileID: 4074051225848096770}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1555344564
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1555344565}
-  m_Layer: 0
-  m_Name: TeleportPoint (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1555344565
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1555344564}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.04, y: 3.756443, z: -8.39}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1556499387 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3953854127382859646, guid: b4c7e52975f182042875f6862b890251, type: 3}
@@ -16591,8 +16535,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1134937023}
     m_Modifications:
     - target: {fileID: 3628443156678852007, guid: 5438a40bbaa51874eae43e3518a7a6fb, type: 3}
+      propertyPath: isActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628443156678852007, guid: 5438a40bbaa51874eae43e3518a7a6fb, type: 3}
       propertyPath: isLocked
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3628443156678852007, guid: 5438a40bbaa51874eae43e3518a7a6fb, type: 3}
       propertyPath: destructible
@@ -18483,7 +18431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: a13e4f7695d4e4d43a8d537625a3b99d, type: 3}
   requiredItem: 2
   destructible: 1
 --- !u!4 &2138538477
@@ -19735,7 +19683,7 @@ PrefabInstance:
     - target: {fileID: 3628443156678852007, guid: efe85c056e8ccbc41947eac53d1dedc8, type: 3}
       propertyPath: teleportPoint
       value: 
-      objectReference: {fileID: 1381560901}
+      objectReference: {fileID: 0}
     - target: {fileID: 3644346027359524656, guid: efe85c056e8ccbc41947eac53d1dedc8, type: 3}
       propertyPath: m_IsActive
       value: 0
