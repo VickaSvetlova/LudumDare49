@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(sceneIndex);
     }
 
-    public void LoadRandomScene() {
-        SceneManager.LoadScene(sceneIndex);
+    public void LoadScene(int nextSceneIndex) {
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
     public void LoadIntro() {
