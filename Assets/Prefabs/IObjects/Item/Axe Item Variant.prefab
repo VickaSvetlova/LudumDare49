@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: name
       value: Axe
       objectReference: {fileID: 0}
+    - target: {fileID: 5411183348630425209, guid: 4087c28da45517344a0bc79b980323af, type: 3}
+      propertyPath: itemType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5411183348630425213, guid: 4087c28da45517344a0bc79b980323af, type: 3}
       propertyPath: m_Name
       value: Axe Item Variant

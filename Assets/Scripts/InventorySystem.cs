@@ -19,18 +19,18 @@ public class InventorySystem : MonoBehaviour {
 
     public bool HasItem(ItemType type) {
         if (type == ItemType.Null) return true;
-        return items[(int)type] > 0;
+        return items[(int)type - 1] > 0;
     }
 
     public void AddItem(Item item) {
-        items[(int)item.itemType]++;
+        items[(int)item.itemType - 1]++;
         Destroy(item.gameObject);
         UIController.main.UpdateItemCounts(items);
     }
 
     public void RemoveItem(ItemType type) {
         if (type == ItemType.Null) return;
-        items[(int)type]--;
+        items[(int)type - 1]--;
         UIController.main.UpdateItemCounts(items);
     }
 

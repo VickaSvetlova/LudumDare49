@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum ItemType {
-    Axe,
-    Hammer,
-    Soda,
     Null,
+    Key,
+    Hammer,
+    Axe,
+    Soda,
 }
 
 public class Item : InteractiveObject

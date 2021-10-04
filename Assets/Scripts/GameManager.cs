@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start() {
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+        UIController.main.ShowInventory(sceneIndex > 0);
     }
 
     public void Restart() {

@@ -20,11 +20,11 @@ public class UIController : MonoBehaviour {
 
     private void Awake() {
         main = this;
+        ShowInventory(false);
     }
 
     private void Start() {
         ShowMenu(false);
-        ShowInventory(false);
     }
 
     public void InteractShow(string text) {
@@ -56,9 +56,8 @@ public class UIController : MonoBehaviour {
     }
 
     public void ShowInventory(bool value) {
-        UpdateItemCounts(InventorySystem.main.items);
+        if (value) UpdateItemCounts(InventorySystem.main.items);
         inventoryPanel.gameObject.SetActive(value);
-        SetMouseControl(value);
     }
 
     public void UpdateItemCounts(List<int> items) {

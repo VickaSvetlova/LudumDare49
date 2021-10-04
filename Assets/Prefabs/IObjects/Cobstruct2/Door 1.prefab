@@ -1051,9 +1051,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   clip: {fileID: 0}
-  requiredItem: 0
+  requiredItem: 3
   destructible: 1
   isLocked: 0
+  isActive: 1
   rotator: {fileID: 7841415744374669508}
 --- !u!1 &7048043554277396651
 GameObject:
