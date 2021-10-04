@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private int nextSceneIndex;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private PlayerController playerPrefab;
+    public bool isLoadingNewScene { get; private set; }
 
     private void Awake() {
         main = this;
@@ -18,19 +19,21 @@ public class GameManager : MonoBehaviour {
     private void Start() {
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
         UIController.main.ShowInventory(sceneIndex > 0);
-        Debug.Log(nextSceneIndex);
     }
 
     public void Restart() {
-        SceneManager.LoadScene(sceneIndex);
+        if (isLoadingNewScene) return;
+        SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
     }
 
     public void LoadNextScene() {
-        SceneManager.LoadScene(nextSceneIndex);
+        isLoadingNewScene = true;
+        SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Single);
     }
 
     public void LoadIntro() {
-        SceneManager.LoadScene(sceneIndex);
+        isLoadingNewScene = true;
+        SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
     }
 
 }
