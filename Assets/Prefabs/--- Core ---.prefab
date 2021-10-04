@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57355114316c4e9459176e2fb590ed73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ambientClip: {fileID: 8300000, guid: df6c373588f41dd44a2fd7f4f251550e, type: 3}
+  ambientClip: {fileID: 8300000, guid: 20aa970ca04dbae4e80be57b09f38077, type: 3}
   ambientVolume: 0.1
   environmentColor: {r: 1, g: 1, b: 1, a: 1}
   environmentColorIntensity: 0.7
