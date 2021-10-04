@@ -9,6 +9,8 @@ public class Door : CrashObject {
     public bool isActive;
     [SerializeField] private Transform rotator;
     private float targetAngle;
+    [SerializeField] private Transform teleportPoint;
+    [SerializeField] private bool nextScene;
 
     public override bool CanUse(Character character) {
         return isActive;
@@ -34,9 +36,9 @@ public class Door : CrashObject {
                 InventorySystem.main.RemoveItem(ItemType.Key);
                 return;
             }
-            base.Use(character);
+            Destr(character);
         } else if (destructible) {
-            base.Use(character);
+            Destr(character);
         } else if (isLocked) {
             if (InventorySystem.main.HasItem(ItemType.Key)) {
                 Open(character);
@@ -47,16 +49,33 @@ public class Door : CrashObject {
         }
     }
 
-    public void Open(Character character) {
-        if (transform.InverseTransformPoint(character.transform.position).z > 0) {
-            targetAngle = (isOpen) ? 90f : 180f;
-        } else {
-            targetAngle = (isOpen) ? 90f : 0f;
+    private void Destr(Character character) {
+        base.Use(character);
+        if (nextScene) {
+
+        } else if (teleportPoint) {
+            character.transform.position = teleportPoint.position;
+            character.transform.rotation = teleportPoint.rotation;
         }
-        StopAllCoroutines();
-        StartCoroutine(IEDoorRotation());
-        isOpen = !isOpen;
-        isLocked = false;
+    }
+
+    private void Open(Character character) {
+        if (nextScene) {
+
+        } else if (teleportPoint) {
+            character.transform.position = teleportPoint.position;
+            character.transform.rotation = teleportPoint.rotation;
+        } else {
+            if (transform.InverseTransformPoint(character.transform.position).z > 0) {
+                targetAngle = (isOpen) ? 90f : 180f;
+            } else {
+                targetAngle = (isOpen) ? 90f : 0f;
+            }
+            StopAllCoroutines();
+            StartCoroutine(IEDoorRotation());
+            isOpen = !isOpen;
+            isLocked = false;
+        }
     }
 
     IEnumerator IEDoorRotation() {
