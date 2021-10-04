@@ -46,7 +46,7 @@ MonoBehaviour:
   ambientClip: {fileID: 8300000, guid: df6c373588f41dd44a2fd7f4f251550e, type: 3}
   ambientVolume: 0.1
   environmentColor: {r: 1, g: 1, b: 1, a: 1}
-  environmentColorIntensity: 0.6
+  environmentColorIntensity: 0.7
   environmentReflectionIntensity: 0
   sunColor: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   sunColorIntensity: 1
