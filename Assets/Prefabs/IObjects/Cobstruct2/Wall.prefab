@@ -166,7 +166,7 @@ MonoBehaviour:
   name: 
   clip: {fileID: 0}
   requiredItem: 0
-  destructible: 1
+  destructible: 0
 --- !u!1 &5823669509163152254
 GameObject:
   m_ObjectHideFlags: 0

@@ -1053,7 +1053,7 @@ MonoBehaviour:
   clip: {fileID: 0}
   requiredItem: 0
   destructible: 1
-  isLocked: 1
+  isLocked: 0
   rotator: {fileID: 7841415744374669508}
 --- !u!1 &7048043554277396651
 GameObject:
