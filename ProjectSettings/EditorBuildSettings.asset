@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Main/0 MainMenu.unity
     guid: 047884952392d694b8b600ecb0d021c8
   - enabled: 1
-    path: Assets/Scenes/Main/Scene 1.unity
+    path: Assets/Scenes/Main/1 Scene 1.unity
     guid: ce71e75c5e85d564ea255da6e5bd4dfb
   - enabled: 1
     path: Assets/Scenes/Main/Legion 1.unity
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main/Legion 3.unity
     guid: 9296f900fb36fbc4a9aad694371cb15a
+  - enabled: 1
+    path: Assets/Scenes/Main/Z Final.unity
+    guid: 3c9c10022ef9f684daaa307a42b6cbee
   m_configObjects: {}

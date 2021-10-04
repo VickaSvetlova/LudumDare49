@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.4
+  m_AmbientIntensity: 0
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 14eb418d8cec36e4286c0f332509ee83, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 4f5a5edd7d5ecad4eae7c570b522b961, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -12269,6 +12269,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2122568840}
     m_Modifications:
+    - target: {fileID: 3628443156678852007, guid: 5438a40bbaa51874eae43e3518a7a6fb, type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: fe831fc0bf28df84e945a35c0c01e2ab, type: 3}
     - target: {fileID: 6282193940069659104, guid: 5438a40bbaa51874eae43e3518a7a6fb, type: 3}
       propertyPath: m_Name
       value: Door 1
