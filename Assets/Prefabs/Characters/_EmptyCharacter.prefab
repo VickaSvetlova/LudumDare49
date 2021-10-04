@@ -72,7 +72,6 @@ MonoBehaviour:
   fallinDistance: 3
   fallinDistanceToDie: 8
   stepOffset: 0.3
-  groundMaterial: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 129
@@ -194,6 +193,10 @@ PrefabInstance:
       propertyPath: jumpClips.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 50bd33e27500dfe408e0e6efffbe3eaa, type: 3}
+    - target: {fileID: 462589729328036781, guid: aa66316e658b6ba419537d40a16f21e6, type: 3}
+      propertyPath: stepClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: a9dcec36ea04a4f4da5d1a45de8abf0a, type: 3}
     - target: {fileID: 462589729328036781, guid: aa66316e658b6ba419537d40a16f21e6, type: 3}
       propertyPath: stepClips.Array.data[1]
       value: 

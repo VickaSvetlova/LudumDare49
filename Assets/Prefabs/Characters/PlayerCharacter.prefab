@@ -55,5 +55,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8651928674957472095, guid: 79be600e90ea6ad42bec45972ea07b8b, type: 3}
+      propertyPath: stepClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651928674957472095, guid: 79be600e90ea6ad42bec45972ea07b8b, type: 3}
+      propertyPath: stepClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651928674957472095, guid: 79be600e90ea6ad42bec45972ea07b8b, type: 3}
+      propertyPath: stepClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651928674957472095, guid: 79be600e90ea6ad42bec45972ea07b8b, type: 3}
+      propertyPath: stepClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651928674957472095, guid: 79be600e90ea6ad42bec45972ea07b8b, type: 3}
+      propertyPath: stepClips.Array.data[5]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651928674957472095, guid: 79be600e90ea6ad42bec45972ea07b8b, type: 3}
+      propertyPath: stepClips.Array.data[6]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651928674957472095, guid: 79be600e90ea6ad42bec45972ea07b8b, type: 3}
+      propertyPath: stepClips.Array.data[7]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79be600e90ea6ad42bec45972ea07b8b, type: 3}

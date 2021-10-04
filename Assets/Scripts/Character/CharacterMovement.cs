@@ -28,7 +28,6 @@ public class CharacterMovement : MonoBehaviour
 
 
     [Header("Grounding")]
-    [HideInInspector] public VoxMaterial groundMaterial;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Vector3 slopeDirection = Vector3.up;
     [SerializeField] private float slopeAngle;
@@ -135,18 +134,6 @@ public class CharacterMovement : MonoBehaviour
                 if (fallinDist > fallinDistanceToDie) character.Die();
                 else if (fallinDist > fallinDistance) character.model.animator.SetTrigger("Roll");
                 fallinStartY = -1000;
-            }
-            RaycastHit hit;
-            VoxMaterial newVoxMaterial = VoxMaterial.Null;
-            if (Physics.Raycast(transform.position + Vector3.up, Vector3.down, out hit, 2f, layerMask)) {
-                newVoxMaterial = VoxMaterialManager.main.GetMaterial(hit);
-                slopeAngle = Vector3.Angle(hit.normal, Vector3.up);
-                slopeDirection = Vector3.Cross(hit.normal, Vector3.Cross(hit.normal, Vector3.up));
-            } else {
-                newVoxMaterial = VoxMaterial.Asphalt;
-            }
-            if (newVoxMaterial != VoxMaterial.Null && newVoxMaterial != groundMaterial) {
-                groundMaterial = newVoxMaterial;
             }
         } else {
             fallTimer += Time.deltaTime;

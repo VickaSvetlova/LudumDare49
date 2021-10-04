@@ -24,4 +24,8 @@ public class Item : InteractiveObject
         InventorySystem.main.AddItem(this);
     }
 
+    public override string GetName() {
+        return "Take " + base.GetName();
+    }
+
 }

@@ -29,7 +29,7 @@ public class CharacterInteractivity : MonoBehaviour
                     if (iobject != activeObject)
                     {
                         activeObject = iobject;
-                        UIController.main.InteractShow(iobject.name);
+                        if (iobject.CanUse(character)) UIController.main.InteractShow(iobject.GetName());
                     }
                     return;
                 }
@@ -41,7 +41,7 @@ public class CharacterInteractivity : MonoBehaviour
 
     private void Update() {
         if (Input.GetButtonDown("Use") && activeObject) {
-            activeObject.Use(character);
+            if (activeObject.CanUse(character)) activeObject.Use(character);
         }
     }
 

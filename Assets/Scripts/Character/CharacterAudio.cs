@@ -11,22 +11,20 @@ public class CharacterAudio : MonoBehaviour {
 
     [SerializeField] private AudioClip[] stepClips;
 
-    [SerializeField] private AudioClip[] jumpClips;
-
     private void Awake() {
         character = GetComponentInParent<Character>();
     }
 
     public void PlayStepSound() {
         if (!character.movement.isGrounded) return;
-        footAudioSource.clip = stepClips[(int)character.movement.groundMaterial];
+        footAudioSource.clip = stepClips[0];
         footAudioSource.pitch = Random.Range(0.9f, 1.1f);
         footAudioSource.Play();
     }
 
     public void PlayJumpSound() {
         //footAudioSource.clip = jumpClips[Random.Range(0, jumpClips.Length)];
-        footAudioSource.clip = stepClips[(int)character.movement.groundMaterial];
+        footAudioSource.clip = stepClips[0];
         footAudioSource.pitch = Random.Range(0.9f, 1.1f);
         footAudioSource.Play();
     }

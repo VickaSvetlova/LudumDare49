@@ -67,6 +67,14 @@ public class CrashObject : InteractiveObject
     }
 
 
+    public override string GetName() {
+        return "Destroy " + base.GetName();
+    }
+
+    public override bool CanUse(Character character) {
+        return destructible;
+    }
+
     public override void Use(Character character)
     {
         base.Use(character);

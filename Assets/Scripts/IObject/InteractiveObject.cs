@@ -11,6 +11,14 @@ public class InteractiveObject : MonoBehaviour {
         gameObject.SetTagRecursively(TagList.InteractiveObject);
     }
 
+    public virtual string GetName() {
+        return name;
+    }
+
+    public virtual bool CanUse(Character character) {
+        return true;
+    }
+
     public virtual void Use(Character character) {
 
     }

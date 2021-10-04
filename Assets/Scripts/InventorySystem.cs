@@ -29,6 +29,7 @@ public class InventorySystem : MonoBehaviour {
     }
 
     public void RemoveItem(ItemType type) {
+        if (type == ItemType.Null) return;
         items[(int)type]--;
         UIController.main.UpdateItemCounts(items);
     }

@@ -16,6 +16,7 @@ public class Area : MonoBehaviour {
     [SerializeField] [ColorUsage(true, true)] public Color sunColor;
     [SerializeField] public float sunColorIntensity = 1f;
     [SerializeField] public bool flashlightEnabled;
+    [SerializeField] public bool isDefault;
 
     public static Area current;
 
@@ -23,6 +24,12 @@ public class Area : MonoBehaviour {
     }
 
     private void OnExit() {
+    }
+
+    private void Start() {
+        if (isDefault) {
+            Enter();
+        }
     }
 
     public void Enter() {
