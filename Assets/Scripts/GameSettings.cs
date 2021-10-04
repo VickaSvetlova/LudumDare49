@@ -3,16 +3,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [Serializable]
-public struct SettingsData {
+public class SettingsData {
 
     public float mouseSensivity;
+    public float zoom;
 
 }
 
 public class GameSettings : MonoBehaviour {
 
     public static GameSettings main { get; private set; }
-    public static SettingsData data = new SettingsData();
 
     [SerializeField] private Slider mouseSensSlider;
 
@@ -23,18 +23,18 @@ public class GameSettings : MonoBehaviour {
     }
 
     private void Start() {
-        data = Load();
+        if (InventorySystem.main.gameSettings == null) InventorySystem.main.gameSettings = Load();
     }
 
     private void OnEnable() {
-        mouseSensSlider.value = data.mouseSensivity;
+        mouseSensSlider.value = InventorySystem.main.gameSettings.mouseSensivity;
     }
 
     public void Save() {
         //string json = JsonUtility.ToJson(data);
         //PlayerPrefs.SetString("Settings", json);
         //PlayerPrefs.Save();
-        data.mouseSensivity = mouseSensSlider.value;
+        InventorySystem.main.gameSettings.mouseSensivity = mouseSensSlider.value;
         UIController.main.ShowMenu(false);
     }
 
@@ -45,6 +45,7 @@ public class GameSettings : MonoBehaviour {
         //}
         var settings = new SettingsData();
         settings.mouseSensivity = 1.9f;
+        settings.zoom = 2f;
         return settings;
     }
 

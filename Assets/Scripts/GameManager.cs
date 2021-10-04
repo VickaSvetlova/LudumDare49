@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
     }
 
+    [ContextMenu("LoadNext")]
     public void LoadNextScene() {
         isLoadingNewScene = true;
         SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Single);

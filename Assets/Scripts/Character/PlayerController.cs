@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Start() {
-        zoom = InventorySystem.main.zoom;
+        zoom = InventorySystem.main.gameSettings.zoom;
     }
 
     private void Update() {
@@ -69,9 +69,9 @@ public class PlayerController : MonoBehaviour
     }
 
     void CameraControl() {
-        cameraEulerH += Input.GetAxis("Mouse X") * GameSettings.data.mouseSensivity;
+        cameraEulerH += Input.GetAxis("Mouse X") * InventorySystem.main.gameSettings.mouseSensivity;
         cameraEulerH = Mathf.Repeat(cameraEulerH, 360f);
-        cameraEulerV -= Input.GetAxis("Mouse Y") * GameSettings.data.mouseSensivity;
+        cameraEulerV -= Input.GetAxis("Mouse Y") * InventorySystem.main.gameSettings.mouseSensivity;
         cameraEulerV = Mathf.Clamp(cameraEulerV, -80f, 89f);
         cameraTransformV.localEulerAngles = new Vector3(cameraEulerV, 0, 0);
         cameraTransformH.eulerAngles = new Vector3(0, cameraEulerH, 0);
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
             zoom -= zoomSens * mouseWheel;
             zoom = Mathf.Clamp(zoom, zoomMin, zoomMax);
             if (allowFPV && zoom == zoomMin) SetFPV(true);
-            InventorySystem.main.zoom = zoom;
+            InventorySystem.main.gameSettings.zoom = zoom;
         }
     }
 

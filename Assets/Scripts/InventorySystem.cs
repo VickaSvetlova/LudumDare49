@@ -6,7 +6,7 @@ public class InventorySystem : MonoBehaviour {
 
     public static InventorySystem main { get; private set; }
 
-    public float zoom = 2f;
+    public SettingsData gameSettings = null;
 
     public List<int> items;
 
