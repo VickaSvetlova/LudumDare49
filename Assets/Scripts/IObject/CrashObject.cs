@@ -4,7 +4,7 @@ public class CrashObject : InteractiveObject
 {
     [SerializeField] private AudioClip clip;
 
-    private Rigidbody[] rigidBodies;
+    [SerializeField] private Rigidbody[] rigidBodies;
     private BoxCollider[] NonCrachebalModel;
 
     public ItemType requiredItem;
@@ -22,7 +22,7 @@ public class CrashObject : InteractiveObject
 
         base.Awake();
         NonCrachebalModel = GetComponentsInChildren<BoxCollider>();
-        rigidBodies = GetComponentsInChildren<Rigidbody>();
+        rigidBodies = GetComponentsInChildren<Rigidbody>(true);
 
         //foreach (var rb in rigidBodies)
         //{
