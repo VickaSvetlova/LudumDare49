@@ -24,7 +24,9 @@ public class UIController : MonoBehaviour {
     }
 
     private void Start() {
+        InteractHide();
         ShowMenu(false);
+        if (GameManager.main.sceneIndex == 0) SetMouseControl(true);
     }
 
     public void InteractShow(string text) {

@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public static GameManager main;
-    [SerializeField] private int sceneIndex;
-    [SerializeField] private int nextSceneIndex;
+    public int sceneIndex { get { return SceneManager.GetActiveScene().buildIndex; } } 
+    [SerializeField] private int nextSceneIndex { get { return sceneIndex + 1;  } }
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private PlayerController playerPrefab;
     public bool isLoadingNewScene { get; private set; }
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Start() {
-        Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+        if (sceneIndex > 0) Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
         UIController.main.ShowInventory(sceneIndex > 0);
     }
 
@@ -31,9 +31,13 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Single);
     }
 
-    public void LoadIntro() {
+    public void LoadMainMenu() {
         isLoadingNewScene = true;
-        SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+    }
+
+    public void Exit() {
+        Application.Quit();
     }
 
 }
