@@ -68,6 +68,10 @@ public class CrashObject : InteractiveObject
 
 
     public override string GetName() {
+        if (!InventorySystem.main.HasItem(requiredItem)) {
+            if (requiredItem == ItemType.Axe) return "Need an axe";
+            else if (requiredItem == ItemType.Hammer) return "Need a hammer";
+        }
         return "Destroy " + base.GetName();
     }
 

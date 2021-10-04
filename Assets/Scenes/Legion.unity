@@ -572,6 +572,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2138677392, guid: dae480d47f18d4842960fda6670a6dbc, type: 3}
+      propertyPath: m_Shadows.m_Bias
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138677392, guid: dae480d47f18d4842960fda6670a6dbc, type: 3}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138677392, guid: dae480d47f18d4842960fda6670a6dbc, type: 3}
+      propertyPath: m_Shadows.m_NormalBias
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 788007386947043030, guid: dae480d47f18d4842960fda6670a6dbc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
