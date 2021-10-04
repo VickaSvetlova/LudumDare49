@@ -4,8 +4,9 @@ public class CrashObject : InteractiveObject
 {
     [SerializeField] private AudioClip clip;
 
-    [SerializeField] private Rigidbody[] rigidBodies;
+    private Rigidbody[] rigidBodies;
     private BoxCollider[] NonCrachebalModel;
+    private LightProbs[] lightProbs;
 
     public ItemType requiredItem;
 
@@ -14,6 +15,9 @@ public class CrashObject : InteractiveObject
 
     protected override void Awake()
     {
+        lightProbs = GetComponentsInChildren<LightProbs>(true);
+        if (lightProbs.Length > 0) ShowLightProbs(destructible);
+
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null && clip != null)
         {
@@ -26,6 +30,17 @@ public class CrashObject : InteractiveObject
 
         foreach (var rb in rigidBodies) {
             rb.gameObject.SetActive(false);
+        }
+    }
+
+    public void SetDestructible(bool value) {
+        destructible = value;
+        ShowLightProbs(destructible);
+    }
+
+    private void ShowLightProbs(bool value) {
+        foreach (var lp in lightProbs) {
+            lp.gameObject.SetActive(value);
         }
     }
 
@@ -48,6 +63,8 @@ public class CrashObject : InteractiveObject
             rigidBody.isKinematic = false;
             rigidBody.AddExplosionForce(150f, explosivePos, 20f);
         }
+
+        if (lightProbs.Length > 0) ShowLightProbs(false);
 
         if (clip != null && audioSource != null)
             PlaySound(clip);
