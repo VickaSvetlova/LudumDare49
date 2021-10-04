@@ -3,8 +3,7 @@ using UnityEngine;
 public class CrashObject : InteractiveObject
 {
     [SerializeField] private AudioClip clip;
-
-    private Rigidbody[] rigidBodies;
+    
     private BoxCollider[] NonCrachebalModel;
     private LightProbs[] lightProbs;
 
@@ -26,7 +25,7 @@ public class CrashObject : InteractiveObject
 
         base.Awake();
         NonCrachebalModel = GetComponentsInChildren<BoxCollider>();
-        rigidBodies = GetComponentsInChildren<Rigidbody>(true);
+        var rigidBodies = GetComponentsInChildren<Rigidbody>(true);
 
         foreach (var rb in rigidBodies) {
             rb.gameObject.SetActive(false);
@@ -52,6 +51,7 @@ public class CrashObject : InteractiveObject
     public void Crash(Vector3 explosivePos)
     {
         MeshCollider firstCollider = null;
+        var rigidBodies = GetComponentsInChildren<Rigidbody>(true);
         foreach (var rigidBody in rigidBodies)
         {
             var rigidCollider = rigidBody.GetComponent<MeshCollider>();
