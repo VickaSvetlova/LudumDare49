@@ -384,8 +384,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Door
+  clip: {fileID: 0}
   requiredItem: 0
-  destructible: 1
+  destructible: 0
   isLocked: 0
   rotator: {fileID: 2587656542630044181}
 --- !u!1 &3753229389644851490

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CrashObject : InteractiveObject
@@ -7,6 +5,7 @@ public class CrashObject : InteractiveObject
     [SerializeField] private AudioClip clip;
 
     private Rigidbody[] rigidBodies;
+    private BoxCollider[] NonCrachebalModel;
 
     public ItemType requiredItem;
 
@@ -22,7 +21,13 @@ public class CrashObject : InteractiveObject
         }
 
         base.Awake();
+        NonCrachebalModel = GetComponentsInChildren<BoxCollider>();
         rigidBodies = GetComponentsInChildren<Rigidbody>();
+
+        foreach (var rb in rigidBodies)
+        {
+            rb.gameObject.SetActive(false);
+        }
     }
 
     public void Crash()
@@ -34,6 +39,12 @@ public class CrashObject : InteractiveObject
     {
         foreach (var rigidBody in rigidBodies)
         {
+            foreach (var collider in NonCrachebalModel)
+            {
+                collider.gameObject.SetActive(false);
+            }
+
+            rigidBody.gameObject.SetActive(true);
             rigidBody.GetComponent<MeshCollider>().convex = true;
             rigidBody.isKinematic = false;
             rigidBody.AddExplosionForce(150f, explosivePos, 20f);
