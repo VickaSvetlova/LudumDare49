@@ -93,6 +93,8 @@ public class CrashObject : InteractiveObject
         if (!InventorySystem.main.HasItem(requiredItem)) {
             if (requiredItem == ItemType.Axe) return "Need an axe";
             else if (requiredItem == ItemType.Hammer) return "Need a hammer";
+            else if (requiredItem == ItemType.Key) return "Need a key";
+            else if (requiredItem == ItemType.Soda) return "Need a soda";
         }
         return "Destroy " + base.GetName();
     }

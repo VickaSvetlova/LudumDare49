@@ -1956,7 +1956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4073817260974177046, guid: 585293e049aac3f41a4985fb946927c0, type: 3}
       propertyPath: requiredItem
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5457591217027448378, guid: 585293e049aac3f41a4985fb946927c0, type: 3}
       propertyPath: m_RootOrder
