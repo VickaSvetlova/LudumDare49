@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main/Legion 2.unity
     guid: 6a3f1211156044a4ab3ddfe9acf7a869
+  - enabled: 1
+    path: Assets/Scenes/Main/Legion 3.unity
+    guid: 9296f900fb36fbc4a9aad694371cb15a
   m_configObjects: {}
